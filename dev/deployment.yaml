@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -17,3 +17,6 @@ spec:
         image: nanajanashia/argocd-app:1.2
         ports:
         - containerPort: 8080
+      - name: ubuntu
+        image: ubuntu:latest
+
