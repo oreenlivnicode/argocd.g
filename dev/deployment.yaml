@@ -1,39 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-pod
+  name: Hacked
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: hack
   replicas: 1
   template:
     metadata:
       labels:
-        app: myapp
+        app: hack
     spec:
       containers:
-      - name: myapp
+      - name: hack
         image: nanajanashia/argocd-app:1.2
         ports:
         - containerPort: 8080
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ubuntu-pod
-spec:
-  selector:
-    matchLabels:
-      app: ubuntu
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: ubuntu
-    spec:
-      containers:
-      - name: ubuntu
-        image: ubuntu:latest
-        command: ["/bin/sleep", "3650d"] 
-
