@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: replicefo
+  name: myapp-pod
 spec:
   selector:
     matchLabels:
@@ -17,6 +17,22 @@ spec:
         image: nanajanashia/argocd-app:1.2
         ports:
         - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-pod
+spec:
+  selector:
+    matchLabels:
+      app: ubuntu
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
       - name: ubuntu
         image: ubuntu:latest
         command: ["/bin/sleep", "3650d"] 
